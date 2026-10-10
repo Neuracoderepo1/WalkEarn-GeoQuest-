@@ -1,0 +1,31 @@
+project_id = "geoquest-mvp"
+
+[api]
+enabled = true
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:5173/**"]
+enable_signup = true
+
+[functions.claim-quest]
+verify_jwt = true
+
+[functions.redeem-reward]
+verify_jwt = true
+
+[functions.merchant-dashboard]
+verify_jwt = true
+
+[functions.create-campaign]
+verify_jwt = true
+
+[functions.reissue-code]
+verify_jwt = true
+
+[functions.set-campaign-status]
+verify_jwt = true
