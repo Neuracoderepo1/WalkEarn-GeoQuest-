@@ -1,5 +1,8 @@
 -- Minimal Supabase stand-ins so the migrations can run on plain Postgres + PostGIS.
 -- Test-only. Never apply to a real Supabase project (it already provides all of this).
+-- Some images (e.g. postgis/postgis) pre-install PostGIS in public. Supabase keeps extensions in the
+-- `extensions` schema, which is what the migrations target, so start from a clean slate.
+drop extension if exists postgis cascade;
 create schema if not exists extensions;
 create schema if not exists auth;
 do $$ begin
